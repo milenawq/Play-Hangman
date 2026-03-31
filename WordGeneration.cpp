@@ -32,6 +32,8 @@ void WordGeneration::LoadFromFile(const string &filename) {
     }
     string word;
     while (file >> word) {
+        while (!word.empty() && (word.back() == '\n'))
+            word.pop_back();
         words.push_back(word);
     }
     file.close();
